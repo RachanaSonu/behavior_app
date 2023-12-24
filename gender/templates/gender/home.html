@@ -1,0 +1,56 @@
+<!-- gender/templates/gender/home.html -->
+<!-- <h1>Welcome to Gender Behavior App</h1>
+<a href="{% url 'male' %}">Male</a> | <a href="{% url 'female' %}">Female</a> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Behaviors Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .gender-container {
+            display: flex;
+            flex-direction: row; /* Change to row for a horizontal layout */
+            justify-content: center; /* Center the items on the main axis */
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .gender-box {
+    margin: 10px; /* Adjust the margin to control the space between images */
+    padding: 10px; /* Add padding to create space inside the border */
+    /* border: 1px solid black; 
+    box-sizing: border-box;  */
+}
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Human Behaviors </h1>
+    {% load static %}
+    
+    <div class="gender-container">
+        <div class="gender-box">
+            <h2>Male</h2>
+            <a href="{% url 'male' %}"><img src="{% static 'images/m1.png' %}" alt="Male Image" width="200px" height="400px"></a>
+        </div>
+
+        <div class="gender-box">
+            <h2>Female</h2>
+            <a href="{% url 'female' %}"><img src="{% static 'images/f2.png' %}" alt="Female Image" width="176px" height="400px"></a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+    }
+
+    h1 {
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        margin-bottom: 30px;
+        line-height: 1.6;
+        position: relative;
+    }
+
+    li::before {
+        content: '';
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        width: 10px;
+        height: 1px;
+        background-color: #ccc;
+    }
+
+    li span {
+        display: block;
+        text-transform: uppercase;
+    }
+
+    .characteristics {
+        border: 1px solid #ddd;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .select-behaviors {
+        border: 1px solid #ddd;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .behavior-image {
+        max-width: 100%;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+
+    .select-behaviors form {
+        margin-top: 20px; /* Add space between image and form */
+    }
+
+    .select-behaviors label,
+    .select-behaviors input {
+        margin-bottom: 10px; /* Add space between label and input */
+    }
+
+    .select-behaviors input[type="submit"] {
+        margin-top: 10px; /* Add space above the submit button */
+        display: inline-block;
+        padding: 8px 16px;
+        /* background-color: #ccc; */
+        color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-left: 10px; /* Add space between Save and Cancel */
+    }
+
+    .select-behaviors label .italic {
+        font-style: italic;
+    }
+    .cancel-link {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: #ccc;
+        color: #333;
+        text-decoration: none;
+        border-radius: 4px;
+        margin-left: 10px; /* Add space between Save and Cancel */
+    }
+</style>
+
+<body>
+    {% load static %}
+    <center>
+        <h1>Male Behaviors</h1>
+    </center>
+    <div class="container">
+        <!-- Characteristics Div -->
+        <div class="characteristics">
+            <ul>
+                <li><span>Confident:</span> A confident man exudes self-assurance and belief in his abilities.</li>
+                <li><span>Caring:</span> Compassion and empathy towards others demonstrate a caring and nurturing
+                    nature.</li>
+                <li><span>Intelligent:</span> Intelligence can manifest in various forms, such as problem-solving
+                    skills, creativity, and a quick wit.</li>
+                <li><span>Ambitious:</span> A man with ambition sets goals and works hard to achieve them, displaying
+                    determination and drive.</li>
+                <li><span>Humorous:</span> A good sense of humor can make interactions enjoyable and help lighten the
+                    mood.</li>
+                <li><span>Responsible:</span> Taking responsibility for one's actions and commitments reflects maturity
+                    and reliability.</li>
+                <li><span>Courageous:</span> Facing challenges with bravery and overcoming fears demonstrates courage.
+                </li>
+                <li><span>Adventurous:</span> A love for new experiences and a willingness to explore the unknown can be
+                    adventurous qualities.</li>
+                <li><span>Passionate:</span> Having enthusiasm and dedication for pursuits, whether it's a career,
+                    hobby, or relationship, is a positive trait.</li>
+                <li><span>Honest:</span> Open and truthful communication fosters trust and integrity.</li>
+                <li><span>Loyal:</span> Loyalty in friendships and relationships is a valued quality that builds strong
+                    connections.</li>
+        </div>
+
+        <div class="select-behaviors">
+            <img class="behavior-image" src="{% static 'images/m3.png' %}" alt="Behavior Image">
+
+            <form method="post" action="">
+                {% csrf_token %}
+                <label for="user_name">User Name:</label>
+                <input type="text" name="user_name" required><br>
+
+                <h4><label><span class="italic">Select Behaviors:</span></label></h4>
+                <input type="checkbox" name="behaviors" value="Confident"> Confident<br>
+                <input type="checkbox" name="behaviors" value="Caring"> Caring<br>
+                <input type="checkbox" name="behaviors" value="Intelligent"> Intelligent<br>
+                <input type="checkbox" name="behaviors" value="Ambitious"> Ambitious<br>
+                <input type="checkbox" name="behaviors" value="Humorous"> Humorous<br>
+                <input type="checkbox" name="behaviors" value="Responsible"> Responsible<br>
+                <input type="checkbox" name="behaviors" value="Courageous"> Courageous<br>
+                <input type="checkbox" name="behaviors" value="Adventurous"> Adventurous<br>
+                <input type="checkbox" name="behaviors" value="Passionate"> Passionate<br>
+                <input type="checkbox" name="behaviors" value="Honest"> Honest<br>
+                <input type="checkbox" name="behaviors" value="Loyal"> Loyal<br>
+
+                <!-- Add more behavior options as needed -->
+
+                <input  type="submit" value="Save"> &nbsp;&nbsp;
+                
+                <a href="{% url 'home' %}" class="cancel-link">Cancel</a>
+            </form>
+        </div>
+    </div>

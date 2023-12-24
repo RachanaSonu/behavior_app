@@ -1,0 +1,6 @@
+<!-- gender/templates/gender/message.html -->
+<h2>Thank You!</h2>
+{% if submitted_behaviors %}
+    <p>Your behavior is: {{ submitted_behaviors }}</p>
+{% endif %}
+<a href="{% url 'home' %}"><button>Go to Home</button></a>
